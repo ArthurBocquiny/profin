@@ -28,10 +28,20 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             $canonicalMethod = 'GET';
         }
 
-        // index
-        if ('/index' === $pathinfo) {
-            return array (  '_controller' => 'App\\Controller\\IndexController::index',  '_route' => 'index',);
+        // app_index_index
+        if ('' === $trimmedPathinfo) {
+            $ret = array (  '_controller' => 'App\\Controller\\IndexController::index',  '_route' => 'app_index_index',);
+            if ('/' === substr($pathinfo, -1)) {
+                // no-op
+            } elseif ('GET' !== $canonicalMethod) {
+                goto not_app_index_index;
+            } else {
+                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'app_index_index'));
+            }
+
+            return $ret;
         }
+        not_app_index_index:
 
         if (0 === strpos($pathinfo, '/_')) {
             // _twig_error_test
