@@ -1,16 +1,37 @@
 security:
+    # config encodage mot de passe
+    encoders:
+        App\Entity\User:
+            algorithm: bcrypt
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory: { memory: ~ }
+         db:
+            entity:
+                class: App\Entity\User
+                property: email
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous: true
-
-            # activate different ways to authenticate
-
+            # le provider qui utilise App\Entity\User
+            provider: db
+            # sur tout le site
+            pattern: ^/
+            
+            form_login:
+                # route du formulaire d'authentification
+                login_path: app_security_login
+                # route du traitement du formulaire d'authentification
+                check_path: app_security_login
+                # vers quek page on est redirigé apres l'authentification
+                default_target_path: app_index_index
+            logout:
+                # route de la page de deconnexion
+                path: app_security_logout
+                # vers quel page on est redirigé apres la deconnexion
+                target: app_index_index
             # http_basic: true
             # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
 

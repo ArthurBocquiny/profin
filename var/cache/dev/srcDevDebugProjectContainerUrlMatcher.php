@@ -43,6 +43,26 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
         not_app_index_index:
 
+        // app_profil_index
+        if ('/profil' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\ProfilController::index',  '_route' => 'app_profil_index',);
+        }
+
+        // app_security_register
+        if ('/inscription' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\SecurityController::register',  '_route' => 'app_security_register',);
+        }
+
+        // app_security_login
+        if ('/login' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\SecurityController::login',  '_route' => 'app_security_login',);
+        }
+
+        // app_security_logout
+        if ('/logout' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\SecurityController::logout',  '_route' => 'app_security_logout',);
+        }
+
         if (0 === strpos($pathinfo, '/_')) {
             // _twig_error_test
             if (0 === strpos($pathinfo, '/_error') && preg_match('#^/_error/(?P<code>\\d+)(?:\\.(?P<_format>[^/]++))?$#sD', $pathinfo, $matches)) {

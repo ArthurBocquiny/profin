@@ -2,12 +2,15 @@
 
 namespace App\Entity;
 
+use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id
@@ -57,14 +60,15 @@ class User
     private $plainPassword;
     /**
      * @ORM\Column()
-     * 
+     * @var string
      */
     private $country;    
     /**
-     * @ORM\Column()
-     * 
+     * @ORM\Column(type="date")
+     * @var \Datetime
      */
     private $birthdate;
+    
     function getPseudo() {
         return $this->pseudo;
     }
@@ -81,11 +85,11 @@ class User
         $this->pseudo = $pseudo;
     }
 
-    function setCountry(select $country) {
+    function setCountry($country) {
         $this->country = $country;
     }
 
-    function setBirthdate(select $birthdate) {
+    function setBirthdate($birthdate) {
         $this->birthdate = $birthdate;
     }
 

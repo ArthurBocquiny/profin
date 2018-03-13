@@ -53,7 +53,7 @@ class __TwigTemplate_d4b54e5142b6bdbde8916ad42fd730e6d3e7be6d42f072f83bd75182fd3
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Undefined";
+        echo "Projet ESL rétro";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -72,11 +72,11 @@ class __TwigTemplate_d4b54e5142b6bdbde8916ad42fd730e6d3e7be6d42f072f83bd75182fd3
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
         // line 6
-        echo "    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">
-    <link rel=\"stylesheet\" href=\"";
+        echo "    <link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">
+    <link href=\"";
         // line 7
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("style/style.css"), "html", null, true);
-        echo "\">
+        echo "\" rel=\"stylesheet\">
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -97,6 +97,8 @@ class __TwigTemplate_d4b54e5142b6bdbde8916ad42fd730e6d3e7be6d42f072f83bd75182fd3
 
         // line 11
         echo "    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>
+    <script src=\"http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places\"></script>
+
     <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\" integrity=\"sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa\" crossorigin=\"anonymous\"></script>
 ";
         
@@ -107,7 +109,7 @@ class __TwigTemplate_d4b54e5142b6bdbde8916ad42fd730e6d3e7be6d42f072f83bd75182fd3
 
     }
 
-    // line 15
+    // line 17
     public function block_body($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -116,23 +118,29 @@ class __TwigTemplate_d4b54e5142b6bdbde8916ad42fd730e6d3e7be6d42f072f83bd75182fd3
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        // line 16
-        echo "    
+        // line 18
+        echo "   
     <nav class=\"navbar navbar-inverse\">
         <ul class=\"nav navbar-nav\">
             <li><a href=\"#\">Jeux</a></li>
             <li><a href=\"#\">News</a></li>
             <li><a href=\"#\">Clan</a></li>
-            <li><a href=\"#\">Inscription</a></li>
-            <li><a href=\"#\">Profil</a></li>
+            <li><a href=\"";
+        // line 24
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_security_register");
+        echo "\">Inscription</a></li>
+            <li><a href=\"";
+        // line 25
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_profil_index");
+        echo "\">Profil</a></li>
         </ul>
     </nav>
    
     <div class=\"container\">
     ";
-        // line 28
+        // line 30
         $this->displayBlock('content', $context, $blocks);
-        // line 29
+        // line 31
         echo "    </div>
     
 ";
@@ -144,7 +152,7 @@ class __TwigTemplate_d4b54e5142b6bdbde8916ad42fd730e6d3e7be6d42f072f83bd75182fd3
 
     }
 
-    // line 28
+    // line 30
     public function block_content($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -173,34 +181,36 @@ class __TwigTemplate_d4b54e5142b6bdbde8916ad42fd730e6d3e7be6d42f072f83bd75182fd3
 
     public function getDebugInfo()
     {
-        return array (  148 => 28,  136 => 29,  134 => 28,  120 => 16,  111 => 15,  99 => 11,  90 => 10,  78 => 7,  75 => 6,  66 => 5,  48 => 3,  15 => 1,);
+        return array (  156 => 30,  144 => 31,  142 => 30,  134 => 25,  130 => 24,  122 => 18,  113 => 17,  99 => 11,  90 => 10,  78 => 7,  75 => 6,  66 => 5,  48 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Twig_Source("{% extends 'base.html.twig' %}
 
-{% block title %}Undefined{% endblock %}
+{% block title %}Projet ESL rétro{% endblock %}
 
 {% block stylesheets %}
-    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">
-    <link rel=\"stylesheet\" href=\"{{ asset('style/style.css') }}\">
-{% endblock %}
+    <link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">
+    <link href=\"{{ asset('style/style.css') }}\" rel=\"stylesheet\">
+{% endblock%}
 
 {% block javascripts %}
     <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>
+    <script src=\"http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places\"></script>
+
     <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\" integrity=\"sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa\" crossorigin=\"anonymous\"></script>
 {% endblock %}
 
 {% block body %}
-    
+   
     <nav class=\"navbar navbar-inverse\">
         <ul class=\"nav navbar-nav\">
             <li><a href=\"#\">Jeux</a></li>
             <li><a href=\"#\">News</a></li>
             <li><a href=\"#\">Clan</a></li>
-            <li><a href=\"#\">Inscription</a></li>
-            <li><a href=\"#\">Profil</a></li>
+            <li><a href=\"{{ path('app_security_register') }}\">Inscription</a></li>
+            <li><a href=\"{{ path('app_profil_index') }}\">Profil</a></li>
         </ul>
     </nav>
    
